@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DemoMultiTenancy.Services.Abstractions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Plugins.Abstractions.Attributes;
+using Plugins.DependencyInjection.AspNetCore.Extensions;
+using Plugins.Tools.Extensions;
+using System;
+using System.Linq;
 
 namespace DemoMultiTenancy.Api
 {
@@ -25,6 +25,21 @@ namespace DemoMultiTenancy.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // Fetch plugin types
+            var pluggableTypesToRegister = AppDomain.CurrentDomain
+                .GetAssemblies()
+                .FetchPlugins<PluggableAttribute>("Tenants.Services")
+                .ToList();
+
+            // Instance provider
+            services.RegisterPluginProvider();
+
+            // Register pluggable services
+            services.RegisterPlugins(pluggableTypesToRegister);
+
+            // Register plugin delegate
+            services.RegisterPluginDelegate<IHelloWorldService>(pluggableTypesToRegister);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,6 +7,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using Plugins.Abstractions.Enums;
+using Plugins.Abstractions.Providers;
+using Plugins.DependencyInjection.AspNetCore.Providers;
 
 namespace Plugins.DependencyInjection.AspNetCore.Extensions
 {
@@ -72,6 +74,15 @@ namespace Plugins.DependencyInjection.AspNetCore.Extensions
                 }
                 registrationFunc(pluggableItem.Service);
             }
+        }
+
+        /// <summary>
+        /// Registers in DI <see cref="IPluginProvider{TInterface}"/> and its concrete instance <see cref="PluginProvider{TInterface}"/>
+        /// </summary>
+        /// <param name="services"><see cref="IServiceCollection"/> to register <see cref="PluginProvider{T}"/> and <see cref="IPluginProvider{T}"/></param>
+        public static void RegisterPluginProvider(this IServiceCollection services)
+        {
+            services.AddSingleton(typeof(IPluginProvider<>), typeof(PluginProvider<>));
         }
     }
 }
