@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DemoMultiTenancy.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using Plugins.Abstractions.Providers;
 
 namespace DemoMultiTenancy.Api.Controllers
 {
@@ -10,36 +12,19 @@ namespace DemoMultiTenancy.Api.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        private readonly IPluginProvider<IHelloWorldService> _helloWorldProvider;
+
+        public ValuesController(IPluginProvider<IHelloWorldService> helloWorldProvider)
         {
-            return new string[] { "value1", "value2" };
+            _helloWorldProvider = helloWorldProvider;
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("{tenant}")]
+        public ActionResult<string> Get(string tenant)
         {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var instance = _helloWorldProvider.GetInstance(tenant);
+            return instance.SayHello();
         }
     }
 }

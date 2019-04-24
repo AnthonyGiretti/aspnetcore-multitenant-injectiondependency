@@ -26,10 +26,8 @@ namespace Plugins.Tools.Extensions
 
             List<PluggableItem> pluggableTypesToRegister = new List<PluggableItem>();
 
-            var fetchedAssemblies = AppDomain.CurrentDomain
-                                             .GetAssemblies()
-                                             .FilterByName(assemblyPrefix)
-                                             .ToList();
+            var fetchedAssemblies = assemblies.FilterByName(assemblyPrefix)
+                                              .ToList();
 
             fetchedAssemblies.ForEach(x =>
             {
