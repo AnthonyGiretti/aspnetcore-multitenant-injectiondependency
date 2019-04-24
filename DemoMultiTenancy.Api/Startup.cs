@@ -25,6 +25,7 @@ namespace DemoMultiTenancy.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
 
             // Fetch plugin types
             var pluggableTypesToRegister = AppDomain.CurrentDomain

@@ -12,8 +12,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Plugins.DependencyInjection.AspNetCore\Plugins.DependencyInjection.AspNetCore.csproj" />
-    <ProjectReference Include="..\Tenants.Services.Tenant1\Tenants.Services.Tenant1.csproj" />
-    <ProjectReference Include="..\Tenants.Services.Tenant2\Tenants.Services.Tenant2.csproj" />
+    <ProjectReference Include="..\Plugins.Tenant1\Plugins.Tenant1.csproj" />
+    <ProjectReference Include="..\Tenants.Services.Tenant1\Plugins.Services.Tenant1.csproj" />
+    <ProjectReference Include="..\Tenants.Services.Tenant2\Plugins.Services.Tenant2.csproj" />
   </ItemGroup>
 
 </Project>
