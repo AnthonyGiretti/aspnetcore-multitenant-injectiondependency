@@ -39,7 +39,7 @@ namespace Plugins.DependencyInjection.AspNetCore.Extensions
                     throw new AmbiguousMatchException($"Several instances have been found for the tenant '{tenant}'.");
                 }
 
-                return (TInterface)serviceProvider.GetRequiredService(items.First().Interface);
+                return (TInterface)serviceProvider.GetRequiredService(items.First().Service);
 
             });
         }

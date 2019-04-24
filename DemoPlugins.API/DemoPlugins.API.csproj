@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -12,10 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Plugins.DependencyInjection.AspNetCore\Plugins.DependencyInjection.AspNetCore.csproj" />
-    <ProjectReference Include="..\Tenants.Services.Acme\Tenants.Services.Acme.csproj" />
     <ProjectReference Include="..\Tenants.Services.Tenant1\Plugins.Services.Tenant1.csproj" />
     <ProjectReference Include="..\Tenants.Services.Tenant2\Plugins.Services.Tenant2.csproj" />
-    <ProjectReference Include="..\Tenants.Services.Tenants3\Tenants.Services.Tenants3.csproj" />
   </ItemGroup>
 
 </Project>

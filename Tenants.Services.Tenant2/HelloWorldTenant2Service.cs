@@ -1,7 +1,7 @@
 ﻿using DemoMultiTenancy.Services.Abstractions;
 using Plugins.Abstractions.Attributes;
 
-namespace Tenants.Services.Tenant2
+namespace Plugins.Services.Tenant2
 {
     [Pluggable]
     public class HelloWorldTenant2Service : IHelloWorldService

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DemoMultiTenancy.Services.Abstractions\DemoMultiTenancy.Services.Abstractions.csproj" />
+    <ProjectReference Include="..\DemoMultiTenancy.Services.Abstractions\Plugins.Services.Abstractions.csproj" />
     <ProjectReference Include="..\Plugins.Abstractions\Plugins.Abstractions.csproj" />
   </ItemGroup>
 

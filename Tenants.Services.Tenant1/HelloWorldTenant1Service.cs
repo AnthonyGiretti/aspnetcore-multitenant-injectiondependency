@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using DemoMultiTenancy.Services.Abstractions;
 
-namespace Tenants.Services.Tenant1
+namespace Plugins.Services.Tenant1
 {
     [Pluggable]
     public class HelloWorldTenant1Service : IHelloWorldService

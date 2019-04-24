@@ -30,7 +30,7 @@ namespace DemoMultiTenancy.Api
             // Fetch plugin types
             var pluggableTypesToRegister = AppDomain.CurrentDomain
                 .GetAssemblies()
-                .FetchPlugins<PluggableAttribute>("Tenants.Services")
+                .FetchPlugins<PluggableAttribute>("Plugins.Services")
                 .ToList();
 
             // Instance provider

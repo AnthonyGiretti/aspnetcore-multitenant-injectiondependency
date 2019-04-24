@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoMultiTenancy.Api", "DemoMultiTenancy.Api\DemoMultiTenancy.Api.csproj", "{719655BE-6B25-4900-B9B9-8F5D59C8767A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugins.Abstractions", "Plugins.Abstractions\Plugins.Abstractions.csproj", "{838139A4-FA0B-474D-B1A9-F3C60C4C8CA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins.Abstractions", "Plugins.Abstractions\Plugins.Abstractions.csproj", "{838139A4-FA0B-474D-B1A9-F3C60C4C8CA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugins.DependencyInjection.AspNetCore", "Plugins.DependencyInjection.AspNetCore\Plugins.DependencyInjection.AspNetCore.csproj", "{2993D49A-E159-4887-B78D-D7E3F831E20A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins.DependencyInjection.AspNetCore", "Plugins.DependencyInjection.AspNetCore\Plugins.DependencyInjection.AspNetCore.csproj", "{2993D49A-E159-4887-B78D-D7E3F831E20A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugins.Tools", "Plugins.Tools\Plugins.Tools.csproj", "{E2639548-45E4-40B6-84B4-93C2C129EBCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins.Tools", "Plugins.Tools\Plugins.Tools.csproj", "{E2639548-45E4-40B6-84B4-93C2C129EBCD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoMultiTenancy.Services.Abstractions", "DemoMultiTenancy.Services.Abstractions\DemoMultiTenancy.Services.Abstractions.csproj", "{D6B7274D-B4DD-4C1C-890F-C4C6EC51BF25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugins.Services.Abstractions", "DemoMultiTenancy.Services.Abstractions\Plugins.Services.Abstractions.csproj", "{D6B7274D-B4DD-4C1C-890F-C4C6EC51BF25}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugins.Services.Tenant1", "Tenants.Services.Tenant1\Plugins.Services.Tenant1.csproj", "{2133717B-BD4E-4133-9216-19A85E3625F3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugins.Services.Tenant2", "Tenants.Services.Tenant2\Plugins.Services.Tenant2.csproj", "{5EA6608F-6709-4A85-A818-F455BACEF322}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins.Tenant1", "Plugins.Tenant1\Plugins.Tenant1.csproj", "{7718660F-8EE7-4F07-AF6A-B55872118886}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoPlugins.API", "DemoPlugins.API\DemoPlugins.API.csproj", "{46D106AF-1327-4E67-B696-DAF95BA01D1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tenants", "Tenants", "{5E57A613-A1C4-402D-B629-86EE1363A1BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{719655BE-6B25-4900-B9B9-8F5D59C8767A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{719655BE-6B25-4900-B9B9-8F5D59C8767A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{719655BE-6B25-4900-B9B9-8F5D59C8767A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{719655BE-6B25-4900-B9B9-8F5D59C8767A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{838139A4-FA0B-474D-B1A9-F3C60C4C8CA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{838139A4-FA0B-474D-B1A9-F3C60C4C8CA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{838139A4-FA0B-474D-B1A9-F3C60C4C8CA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,13 +49,18 @@ Global
 		{5EA6608F-6709-4A85-A818-F455BACEF322}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EA6608F-6709-4A85-A818-F455BACEF322}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EA6608F-6709-4A85-A818-F455BACEF322}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7718660F-8EE7-4F07-AF6A-B55872118886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7718660F-8EE7-4F07-AF6A-B55872118886}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7718660F-8EE7-4F07-AF6A-B55872118886}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7718660F-8EE7-4F07-AF6A-B55872118886}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46D106AF-1327-4E67-B696-DAF95BA01D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46D106AF-1327-4E67-B696-DAF95BA01D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46D106AF-1327-4E67-B696-DAF95BA01D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46D106AF-1327-4E67-B696-DAF95BA01D1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D6B7274D-B4DD-4C1C-890F-C4C6EC51BF25} = {5E57A613-A1C4-402D-B629-86EE1363A1BF}
+		{2133717B-BD4E-4133-9216-19A85E3625F3} = {5E57A613-A1C4-402D-B629-86EE1363A1BF}
+		{5EA6608F-6709-4A85-A818-F455BACEF322} = {5E57A613-A1C4-402D-B629-86EE1363A1BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C9CBE4BB-7FEF-4DB0-B00D-976468E5E00E}
